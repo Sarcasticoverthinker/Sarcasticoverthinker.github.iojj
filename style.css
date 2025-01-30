@@ -1,0 +1,416 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f3e8ff;
+    color: #4b0082;
+    cursor: url('heart-cursor.png'), auto;
+    scroll-behavior: smooth;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: #1a1a1a;
+    color: #f3e8ff;
+}
+
+body.dark-mode header {
+    background: #4b0082;
+}
+
+body.dark-mode .button {
+    background: linear-gradient(135deg, #6a1b9a, #8e24aa);
+}
+
+body.dark-mode .notes textarea {
+    background: #333;
+    color: #fff;
+}
+
+body.dark-mode .saved-notes {
+    background: #444;
+}
+
+/* Book Container */
+.book {
+    width: 95%;
+    height: 95vh;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.dark-mode .book {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Page Styling */
+.page {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.page.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Page Content */
+.page h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2em;
+    text-align: center;
+    margin: 40px 0 20px;
+}
+
+/* Button Styles */
+.button {
+    background: linear-gradient(135deg, #8A2BE2, #9400D3);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+    margin: 10px;
+    font-family: 'Playfair Display', serif;
+    width: 80%;
+    max-width: 600px;
+    display: block;
+    margin: 20px auto;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.5);
+    background: linear-gradient(135deg, #9400D3, #8A2BE2);
+}
+
+.button:active {
+    transform: scale(0.98);
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    z-index: 1000;
+    min-width: 220px;
+    justify-content: center;
+}
+
+.nav-buttons button {
+    font-size: 1.5em;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #8A2BE2, #9400D3);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 100px;
+}
+
+.nav-buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(138, 43, 226, 0.5);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+    .book {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+    }
+
+    .page h2 {
+        font-size: 1.8em;
+        margin-top: 60px;
+    }
+
+    .button {
+        width: 90%;
+        font-size: 1em;
+        padding: 12px 20px;
+    }
+
+    .nav-buttons {
+        bottom: 10px;
+        gap: 10px;
+    }
+
+    .nav-buttons button {
+        font-size: 1.2em;
+        padding: 10px 20px;
+        min-width: 80px;
+    }
+}
+
+/* Notes Section */
+.notes textarea {
+    width: 100%;
+    height: 100px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1em;
+    max-width: 600px;
+    display: block;
+    margin: 20px auto;
+}
+
+.notes button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #8A2BE2, #9400D3);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 0 auto;
+}
+
+.saved-notes {
+    margin: 20px auto;
+    max-height: 150px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #8A2BE2;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+}
+
+.saved-note {
+    padding: 5px 0;
+    border-bottom: 1px solid #dcdcdc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: #8A2BE2;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+/* Floating Hearts Animation */
+@keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0.7; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: float 5s linear infinite;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.8em;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #8A2BE2;
+    z-index: 1000;
+}
+
+body.dark-mode .dark-mode-toggle {
+    color: #f3e8ff;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Page Indicator */
+.page-indicator {
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.page-indicator .dot {
+    width: 10px;
+    height: 10px;
+    background: #8A2BE2;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.page-indicator .dot.active {
+    opacity: 1;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #8A2BE2;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5em;
+    cursor: pointer;
+    display: none;
+    transition: opacity 0.3s;
+}
+
+.back-to-top:hover {
+    background: #9400D3;
+}
+
+/* Confetti Effect */
+@keyframes confetti-fall {
+    0% { transform: translateY(-100vh) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #8A2BE2;
+    animation: confetti-fall 2s linear infinite;
+}
+
+/* Birthday Countdown Styles */
+.birthday-countdown {
+    text-align: center;
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 800px;
+    background: linear-gradient(135deg, #8A2BE2, #9400D3);
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Playfair Display', serif;
+    border: 2px solid #fff;
+}
+
+.countdown-header {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.countdown-timer {
+    font-size: 2.5em;
+    margin: 20px 0;
+    letter-spacing: 3px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-weight: 700;
+}
+
+.timer-unit {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 15px 25px;
+    border-radius: 12px;
+    min-width: 120px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.unit-label {
+    font-size: 0.4em;
+    display: block;
+    margin-top: 5px;
+    opacity: 0.9;
+    letter-spacing: 1px;
+}
+
+.birthday-message {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.8em;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.progress-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.1;
+    z-index: 0;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+}
+
+.celebrations {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10000;
+    display: none;
+}
+
+.birthday-emoji {
+    position: absolute;
+    font-size: 2em;
+    animation: floatUp 3s linear forwards;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
