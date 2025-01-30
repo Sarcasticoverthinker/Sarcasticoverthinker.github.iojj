@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Beautiful Princess Khadijah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
+</head>
+<body>
+    <div class="book">
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+
+        <!-- Page 1: Header -->
+        <div class="page active" id="page1">
+            <header>
+                <h1>For My Beautiful Princess Khadijah</h1>
+                <p>The epitome of beauty and grace, unmatched in the entire world.</p>
+            </header>
+
+            <!-- Birthday Countdown -->
+            <div class="birthday-countdown">
+                <svg class="progress-ring" width="300" height="300">
+                    <circle stroke="white" stroke-width="2" fill="transparent" r="145" cx="150" cy="150" />
+                </svg>
+                <h2 class="countdown-header">Until Your Royal Celebration 👑</h2>
+                <div class="countdown-timer" id="countdown">
+                    <div class="timer-unit"><span id="days">00</span><span class="unit-label">Days</span></div>
+                </div>
+                <div class="birthday-message" id="birthdayMessage"></div>
+            </div>
+
+            <!-- Celebrations Container -->
+            <div class="celebrations" id="celebrations"></div>
+        </div>
+
+        <!-- Page 2: Compliments -->
+        <div class="page" id="page2">
+            <h2>Why You Are Amazing</h2>
+            <section class="compliments">
+                <button class="button" onclick="changeCompliment()">Click for Compliments 💜</button>
+            </section>
+        </div>
+
+        <!-- Page 3: Affirmations -->
+        <div class="page" id="page3">
+            <h2>Daily Affirmation</h2>
+            <section class="affirmations">
+                <button class="button" onclick="changeAffirmation()">Click for Affirmations ✨</button>
+            </section>
+        </div>
+
+        <!-- Page 4: Fun Facts -->
+        <div class="page" id="page4">
+            <h2>Fun Facts About You</h2>
+            <div class="about">
+                <ul>
+                    <li><strong>Favorite Color:</strong> Purple</li>
+                    <li><strong>Favorite Drink:</strong> Oreo Milkshake</li>
+                    <li><strong>Favorite Food:</strong> Butter Chicken</li>
+                    <li><strong>Loves:</strong> Laughing with friends and loved ones</li>
+                    <li><strong>Enjoys:</strong> Sorting things out, bringing order to chaos</li>
+                    <li><strong>Adorable Relationship:</strong> Loves her baby brother, despite his attitude</li>
+                    <li><strong>Work Habit:</strong> Loves talking to someone while working</li>
+                    <li><strong>Favorite Sounds:</strong> Cherishes the soothing sounds of babies</li>
+                    <li><strong>Grammar Enthusiast:</strong> A proud grammar Nazi, always correcting</li>
+                    <li><strong>Chatterbox:</strong> A true yapper at heart, always ready to chat</li>
+                    <li><strong>Makeup Lover:</strong> Especially enjoys lip gloss and eyeliner</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Page 5: Notes -->
+        <div class="page" id="page5">
+            <h2>Notes for Khadijah</h2>
+            <div class="notes">
+                <textarea id="noteInput" placeholder="Write your sweet note here... 💌"></textarea>
+                <button onclick="addNote()">Add Note</button>
+                <div class="saved-notes" id="savedNotesContainer"></div>
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <button id="prevBtn" onclick="prevPage()">Previous</button>
+            <button id="nextBtn" onclick="nextPage()">Next</button>
+        </div>
+        <div class="page-indicator">
+            <div class="dot active" data-page="1"></div>
+            <div class="dot" data-page="2"></div>
+            <div class="dot" data-page="3"></div>
+            <div class="dot" data-page="4"></div>
+            <div class="dot" data-page="5"></div>
+        </div>
+
+        <button class="back-to-top" onclick="scrollToTop()">↑</button>
+    </div>
+
+    <script src="script.js"></script> <!-- Link to external JavaScript -->
+</body>
+</html>
